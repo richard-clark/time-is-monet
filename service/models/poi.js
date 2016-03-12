@@ -9,7 +9,7 @@ module.exports = function (sequelize) {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		objectid: {
+		objectId: {
 			type: Sequelize.INTEGER
 		},
 		type: {
