@@ -4,6 +4,13 @@
 
 ```
 npm install -g cordova ionic
+npm install
+```
+
+To watch for changes and recompile:
+
+```
+gulp
 ```
 
 ## Testing with Browser
