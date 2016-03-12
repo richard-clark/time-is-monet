@@ -9,6 +9,9 @@ module.exports = function (sequelize) {
 			primaryKey: true,
 			autoIncrement: true
 		},
+		objectid: {
+			type: Sequelize.INTEGER
+		},
 		type: {
 			type: Sequelize.STRING
 		},
