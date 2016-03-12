@@ -36,44 +36,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       templateUrl: 'templates/welcome.html'
     })
 
-    .state('app', {
-      abstract: true,
-      url: '/app',
-      templateUrl: 'templates/app.html'
-    })
-
-    .state('app.notInGallery', {
+    .state('notInGallery', {
       url: '/not-in-gallery',
-      templateUrl: 'templates/not-in-gallery.html',
-      views: {
-        'not-in-gallery': {
-          templateUrl: 'templates/not-in-gallery.html'
-        }
-      }
+      templateUrl: 'templates/not-in-gallery.html'
     })
 
-    .state('app.gallery', {
-      url: '/gallery/:galleryId',
-      abstract: true,
+    .state('gallery', {
+      url: '/gallery/:id',
       templateUrl: "templates/gallery.html"
     })
 
-    .state('app.gallery.list', {
-      url: '/list',
-      views: {
-        'list': {
-          templateUrl: 'templates/gallery-list.html'
-        }
-      }
-    })
-
-    .state('app.gallery.object', {
-      url: '/object/:objectId',
-      views: {
-        'object': {
-          templateUrl: 'templates/object.html'
-        }
-      }
+    .state('object', {
+      url: '/object/:id',
+      templateUrl: "templates/object.html"
     })
 
   // if none of the above states are matched, use this as the fallback
