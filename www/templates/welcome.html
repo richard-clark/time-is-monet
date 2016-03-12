@@ -1,5 +1,5 @@
 <ion-view view-title="Dashboard">
-  <ion-content class="padding">
+  <!-- <ion-content class="padding">
     <h2>Welcome to the Philadelphia Museum of Art</h2>
     <p>
       Lorem ipsum dolor sit amit.
@@ -7,5 +7,29 @@
     <a class="button button-positive" href="#/not-in-gallery">
       Let's go!
     </a>
-  </ion-content>
+  </ion-content> -->
+    <ion-content ng-controller="IBeaconsController">
+        <div class="list">
+            <div class="item" ng-repeat="(key, value) in beacons">
+                <div class="row">
+                    <div class="col truncate">
+                        {{value.uuid}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        major: {{value.major}}
+                    </div>
+                    <div class="col">
+                        minor: {{value.minor}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{value.proximity}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>
