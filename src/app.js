@@ -2,6 +2,8 @@ angular.module('starter.controllers', ['ngCordovaBeacon']);
 
 angular.module('starter.directives', []);
 
+angular.module('starter.services', []);
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -40,13 +42,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       templateUrl: 'templates/welcome.html'
     })
 
-    .state('notInGallery', {
-      url: '/not-in-gallery',
-      templateUrl: 'templates/not-in-gallery.html'
-    })
-
     .state('gallery', {
-      url: '/gallery/:id',
+      url: '/gallery',
       templateUrl: "templates/gallery.html"
     })
 

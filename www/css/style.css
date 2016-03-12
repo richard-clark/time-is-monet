@@ -28,3 +28,6 @@
         border-color: blue; }
   .annotated-image img {
     max-width: 100%; }
+
+.image-list img {
+  max-width: 100%; }
