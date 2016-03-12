@@ -31,55 +31,52 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
+    .state('welcome', {
+      url: '/welcome',
+      templateUrl: 'templates/welcome.html'
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+
+    .state('app', {
+      abstract: true,
+      url: '/app',
+      templateUrl: 'templates/app.html'
+    })
+
+    .state('app.notInGallery', {
+      url: '/not-in-gallery',
+      templateUrl: 'templates/not-in-gallery.html',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'not-in-gallery': {
+          templateUrl: 'templates/not-in-gallery.html'
         }
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+    .state('app.gallery', {
+      url: '/gallery/:galleryId',
+      abstract: true,
+      templateUrl: "templates/gallery.html"
+    })
+
+    .state('app.gallery.list', {
+      url: '/list',
+      views: {
+        'list': {
+          templateUrl: 'templates/gallery-list.html'
+        }
       }
-    }
-  });
+    })
+
+    .state('app.gallery.object', {
+      url: '/object/:objectId',
+      views: {
+        'object': {
+          templateUrl: 'templates/object.html'
+        }
+      }
+    })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/welcome');
 
 });
