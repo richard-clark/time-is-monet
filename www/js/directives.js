@@ -22,6 +22,11 @@ angular.module('starter.directives', [])
             x: 0.33,
             y: 0.33,
             text: "Annotation #2"
+          },{
+            type: 3,
+            x: 0.2,
+            y: 0.9,
+            text: "Annotation #2"
         }];
         view.activeAnnotationIndex = 0;
 
