@@ -1,0 +1,13 @@
+{
+  "name": "monet",
+  "main": "",
+  "dependencies": {
+    "epilogue": "^0.6.5",
+    "restify": "^4.0.4",
+    "sequelize": "^3.19.3"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "supertest": "*"
+  }
+}
