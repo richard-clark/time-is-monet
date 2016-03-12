@@ -27,7 +27,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src('./src/*.js')
+  return gulp.src(['./src/app.js'].concat(paths.js))
     .pipe(concat('main.js'))
     .pipe(gulp.dest('./www/'));
 });

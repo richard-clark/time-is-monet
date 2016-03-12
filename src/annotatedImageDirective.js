@@ -1,4 +1,4 @@
-angular.module('starter.directives', []).directive("annotatedImage", function(
+angular.module('starter.directives').directive("annotatedImage", function(
   $state,
   $http
 ){
