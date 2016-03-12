@@ -8,10 +8,11 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 
 var paths = {
+  js: ['./src/**/*.js'],
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'scripts']);
 
 gulp.task('sass', function() {
   gulp.src(paths.sass)
@@ -22,4 +23,11 @@ gulp.task('sass', function() {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.js, ['scripts']);
+});
+
+gulp.task('scripts', function() {
+  return gulp.src(['./src/app.js'].concat(paths.js))
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest('./www/'));
 });

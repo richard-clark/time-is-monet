@@ -10,7 +10,7 @@ npm install
 To watch for changes and recompile:
 
 ```
-gulp
+gulp watch
 ```
 
 ## Testing with Browser
