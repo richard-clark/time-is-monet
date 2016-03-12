@@ -1,0 +1,43 @@
+.annotated-image {
+  position: relative;
+
+  .annotation {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0.75;
+
+    &.selected:before {
+      content: "";
+      border: 2px solid red;
+      width: 40px;
+      height: 40px;
+      display: block;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+    }
+
+    &.annotation--1 {
+      background-color: red;
+      &:before {
+        border-color: red;
+      }
+    }
+
+    &.annotation--2 {
+      background-color: blue;
+      &:before {
+        border-color: blue;
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+}

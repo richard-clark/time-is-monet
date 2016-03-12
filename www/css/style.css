@@ -1,1 +1,30 @@
-/* Empty. Add your own CSS if you like */
+.annotated-image {
+  position: relative; }
+  .annotated-image .annotation {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0.75; }
+    .annotated-image .annotation.selected:before {
+      content: "";
+      border: 2px solid red;
+      width: 40px;
+      height: 40px;
+      display: block;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 50%; }
+    .annotated-image .annotation.annotation--1 {
+      background-color: red; }
+      .annotated-image .annotation.annotation--1:before {
+        border-color: red; }
+    .annotated-image .annotation.annotation--2 {
+      background-color: blue; }
+      .annotated-image .annotation.annotation--2:before {
+        border-color: blue; }
+  .annotated-image img {
+    max-width: 100%; }
