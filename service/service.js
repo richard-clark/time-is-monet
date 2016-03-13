@@ -43,6 +43,19 @@ app.get('/images/:file', function (req, res, next) {
 	});
 });
 
+app.get('/images/thumbnails/:file', function (req, res, next) {
+	fs.readFile('./images/thumbnails/' + req.params.file, function(err, file) {
+		if (err) {
+			res.statusCode = 404;
+			return res.end();
+		}
+
+		res.writeHead(200);
+		res.write(file);
+		res.end();
+	});
+});
+
 epilogue.initialize({
 	app: app,
 	sequelize: sequelize
