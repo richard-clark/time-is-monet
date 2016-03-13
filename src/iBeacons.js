@@ -4,6 +4,13 @@ angular.module('starter.services').factory('iBeacons', function($q, $http) {
   $http.defaults.headers.common.Authorization = 'Bearer 9a9688e2-e0f3-4b48-ac60-902ef7a36eee';
 
   return {
+    getObject: function (id) {
+      return $http({
+        method: 'GET',
+        url: baseUrl + '/objects/' + id
+      });
+    },
+
     getObjects: function (beacons) {
       // query each ibeacon, then get unique locationIds, then query all objects with those locationIds
 

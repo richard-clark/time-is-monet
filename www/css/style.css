@@ -18,16 +18,23 @@
       top: 50%;
       left: 50%;
       border-radius: 50%; }
-    .annotated-image .annotation.annotation--1 {
+    .annotated-image .annotation.annotation--symbol {
       background-color: red; }
-      .annotated-image .annotation.annotation--1:before {
+      .annotated-image .annotation.annotation--symbol:before {
         border-color: red; }
-    .annotated-image .annotation.annotation--2 {
-      background-color: blue; }
-      .annotated-image .annotation.annotation--2:before {
-        border-color: blue; }
+    .annotated-image .annotation.annotation--materials {
+      background-color: yellow; }
+      .annotated-image .annotation.annotation--materials:before {
+        border-color: yellow; }
+    .annotated-image .annotation.annotation--artist {
+      background-color: cyan; }
+      .annotated-image .annotation.annotation--artist:before {
+        border-color: cyan; }
   .annotated-image img {
     max-width: 100%; }
 
 .image-list img {
   max-width: 100%; }
+
+.image-info {
+  padding: 10px; }

@@ -1,19 +1,21 @@
 <div class="annotated-image">
-  <img ng-src="{{view.url}}">
+  <img ng-src="http://52.90.46.49/images/{{view.object.imageFilename}}">
   <div class="annotation annotation--{{annotation.type}}"
     ng-class="{selected: view.activeAnnotationIndex == $index}"
     ng-click="view.activeAnnotationIndex = $index"
-    ng-repeat="annotation in view.annotations"
-    style="top: {{annotation.y * 100}}%; left: {{annotation.y * 100}}%;"
+    ng-repeat="annotation in view.object.pois"
+    style="top: {{annotation.locationY}}%; left: {{annotation.locationX}}%;"
   ></div>
-  <div>
-    <h5>{{view.activeAnnotationIndex + 1}} of {{view.annotations.length}}</h5>
-    {{view.annotations[view.activeAnnotationIndex].text}}
-    <button ng-if="view.activeAnnotationIndex > 0" ng-click="view.activeAnnotationIndex = view.activeAnnotationIndex - 1">
-      Previous
-    </button>
-    <button ng-if="view.activeAnnotationIndex < view.annotations.length - 1" ng-click="view.activeAnnotationIndex = view.activeAnnotationIndex + 1">
-      Next
-    </button>
-  </div>
+</div>
+<div class="image-info" ng-if="view.object.pois.length > 0">
+  <h5>{{view.activeAnnotationIndex + 1}} of {{view.object.pois.length}}</h5>
+  <p>
+    {{view.object.pois[view.activeAnnotationIndex].text}}
+  </p>
+  <button class="button button-small button-calm" ng-if="view.activeAnnotationIndex > 0" ng-click="view.activeAnnotationIndex = view.activeAnnotationIndex - 1">
+    Previous
+  </button>
+  <button class="button button-small button-calm" ng-if="view.activeAnnotationIndex < view.object.pois.length - 1" ng-click="view.activeAnnotationIndex = view.activeAnnotationIndex + 1">
+    Next
+  </button>
 </div>

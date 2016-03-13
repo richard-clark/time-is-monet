@@ -1,6 +1,8 @@
 angular.module('starter.directives').directive("annotatedImage", function(
   $state,
-  $http
+  $http,
+  iBeacons,
+  $state
 ){
   return {
     bindToController: true,
@@ -11,25 +13,21 @@ angular.module('starter.directives').directive("annotatedImage", function(
     controller: function() {
       var view = this;
       view.loading = true;
-      view.annotations = [{
-          type: 1,
-          x: 0.25,
-          y: 0.75,
-          text: "Lorem ipsum dolor sit amit."
-        },{
-          type: 2,
-          x: 0.33,
-          y: 0.33,
-          text: "Annotation #2"
-        },{
-          type: 3,
-          x: 0.2,
-          y: 0.9,
-          text: "Annotation #2"
-      }];
+      view.annotations = [];
       view.activeAnnotationIndex = 0;
 
-      view.url = "http://lh5.ggpht.com/MTDSp6f87Wbz_gF7SxGyYqRe_fgDP_hYvLGkI661hmnX3cw2ugMCw9e6OLvUng=s1200"
+      iBeacons.getObject($state.params.id).then(function(response){
+        var object = response.data;
+
+        console.log("Got object!");
+        console.log(object);
+        view.object = object;
+        view.object.pois.sort(function(a, b){
+          return b.id - a.id;
+        });
+
+        view.loading = false;
+      });
 
       return view;
     }

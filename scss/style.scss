@@ -1,3 +1,10 @@
+@mixin annotation-variant($color) {
+  background-color: $color;
+  &:before {
+    border-color: $color;
+  }
+}
+
 .annotated-image {
   position: relative;
 
@@ -22,19 +29,18 @@
       border-radius: 50%;
     }
 
-    &.annotation--1 {
-      background-color: red;
-      &:before {
-        border-color: red;
-      }
+    &.annotation--symbol {
+      @include annotation-variant(red);
     }
 
-    &.annotation--2 {
-      background-color: blue;
-      &:before {
-        border-color: blue;
-      }
+    &.annotation--materials {
+      @include annotation-variant(yellow);
     }
+
+    &.annotation--artist {
+      @include annotation-variant(cyan);
+    }
+
   }
 
   img {
@@ -46,4 +52,8 @@
   img {
     max-width: 100%;
   }
+}
+
+.image-info {
+  padding: 10px;
 }
