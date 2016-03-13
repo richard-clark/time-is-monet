@@ -3,6 +3,9 @@
   &:before {
     border-color: $color;
   }
+  &.selected {
+    box-shadow: 0px 0px 10px $color;
+  }
 }
 
 .annotated-image {
@@ -10,16 +13,15 @@
 
   .annotation {
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    opacity: 0.75;
     transition: transform 0.2s linear;
 
     &.annotation:before {
       content: "";
-      border: 2px solid red;
+      border: 1px solid red;
       width: 26px;
       height: 26px;
       display: block;
@@ -35,15 +37,15 @@
     }
 
     &.annotation--symbol {
-      @include annotation-variant(red);
+      @include annotation-variant(#FD9454);
     }
 
     &.annotation--materials {
-      @include annotation-variant(yellow);
+      @include annotation-variant(#FEFE56);
     }
 
     &.annotation--artist {
-      @include annotation-variant(cyan);
+      @include annotation-variant(#FF0013);
     }
 
   }
@@ -139,7 +141,7 @@
       width: 100%;
       height: 2.8em;
       font-size: 14px;
-      padding: 0.3em;
+      padding: 0.3em 0.6em;
       box-sizing: border-box;
 
       display: -webkit-box;
