@@ -10,23 +10,28 @@
 
   .annotation {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 14px;
+    height: 14px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     opacity: 0.75;
+    transition: transform 0.2s linear;
 
-    &.selected:before {
+    &.annotation:before {
       content: "";
       border: 2px solid red;
-      width: 40px;
-      height: 40px;
+      width: 26px;
+      height: 26px;
       display: block;
       position: absolute;
       transform: translate(-50%, -50%);
       top: 50%;
       left: 50%;
       border-radius: 50%;
+    }
+
+    &.annotation.selected {
+      transform: translate(-50%, -50%) scale(1.3);
     }
 
     &.annotation--symbol {
@@ -67,10 +72,12 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #555;
+    background-color: white;
+    opacity: 0.3;
+    transition: opacity 0.3s linear;
 
     &.selected {
-      background-color: white;
+      opacity: 1;
     }
 
     & + .dot {
