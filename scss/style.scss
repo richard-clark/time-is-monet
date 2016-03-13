@@ -113,6 +113,8 @@
     position: relative;
     min-width: calc(50% - 2px);
     margin-bottom: 4px;
+    // Safari bugfix
+    flex: 1 1 10em;
 
     &:before {
       content: "";
