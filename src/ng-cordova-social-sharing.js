@@ -14,7 +14,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
         subject = subject || null;
         file = file || null;
         link = link || null;
-        cordova.plugins.socialsharing.share(message, subject, file, link, function () {
+        window.plugins.socialsharing.share(message, subject, file, link, function () {
           q.resolve(true);
         }, function () {
           q.reject(false);
@@ -26,7 +26,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
         var q = $q.defer();
         file = file || null;
         link = link || null;
-        cordova.plugins.socialsharing.shareViaTwitter(message, file, link, function () {
+        window.plugins.socialsharing.shareViaTwitter(message, file, link, function () {
           q.resolve(true);
         }, function () {
           q.reject(false);
@@ -38,7 +38,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
         var q = $q.defer();
         file = file || null;
         link = link || null;
-        cordova.plugins.socialsharing.shareViaWhatsApp(message, file, link, function () {
+        window.plugins.socialsharing.shareViaWhatsApp(message, file, link, function () {
           q.resolve(true);
         }, function () {
           q.reject(false);
@@ -51,7 +51,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
         message = message || null;
         file = file || null;
         link = link || null;
-        cordova.plugins.socialsharing.shareViaFacebook(message, file, link, function () {
+        window.plugins.socialsharing.shareViaFacebook(message, file, link, function () {
           q.resolve(true);
         }, function () {
           q.reject(false);
@@ -63,7 +63,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
         var q = $q.defer();
         file = file || null;
         link = link || null;
-        cordova.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(message, file, link, pasteMessageHint, function () {
+        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(message, file, link, pasteMessageHint, function () {
           q.resolve(true);
         }, function () {
           q.reject(false);
@@ -73,7 +73,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
 
       shareViaSMS: function (message, commaSeparatedPhoneNumbers) {
         var q = $q.defer();
-        cordova.plugins.socialsharing.shareViaSMS(message, commaSeparatedPhoneNumbers, function () {
+        window.plugins.socialsharing.shareViaSMS(message, commaSeparatedPhoneNumbers, function () {
           q.resolve(true);
         }, function () {
           q.reject(false);
@@ -87,7 +87,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
         ccArr = ccArr || null;
         bccArr = bccArr || null;
         fileArr = fileArr || null;
-        cordova.plugins.socialsharing.shareViaEmail(message, subject, toArr, ccArr, bccArr, fileArr, function () {
+        window.plugins.socialsharing.shareViaEmail(message, subject, toArr, ccArr, bccArr, fileArr, function () {
           q.resolve(true);
         }, function () {
           q.reject(false);
@@ -101,7 +101,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
         subject = subject || null;
         file = file || null;
         link = link || null;
-        cordova.plugins.socialsharing.shareVia(via, message, subject, file, link, function () {
+        window.plugins.socialsharing.shareVia(via, message, subject, file, link, function () {
           q.resolve(true);
         }, function () {
           q.reject(false);
@@ -111,7 +111,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
 
       canShareViaEmail: function () {
         var q = $q.defer();
-        cordova.plugins.socialsharing.canShareViaEmail(function () {
+        window.plugins.socialsharing.canShareViaEmail(function () {
           q.resolve(true);
         }, function () {
           q.reject(false);
@@ -121,7 +121,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
 
       canShareVia: function (via, message, subject, file, link) {
         var q = $q.defer();
-        cordova.plugins.socialsharing.canShareVia(via, message, subject, file, link, function (success) {
+        window.plugins.socialsharing.canShareVia(via, message, subject, file, link, function (success) {
           q.resolve(success);
         }, function (error) {
           q.reject(error);
@@ -139,7 +139,7 @@ angular.module('ngCordova.plugins.socialSharing', [])
             q.reject();
           }
         });
-        
+
         return q.promise;
       }
     };

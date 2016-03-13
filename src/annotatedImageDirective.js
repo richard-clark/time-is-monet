@@ -2,13 +2,13 @@ angular.module('starter.directives').directive("annotatedImage", function(
   $state,
   $http,
   iBeacons,
-  $state
+  $state,
+  $cordovaSocialSharing
 ){
   return {
     bindToController: true,
     controllerAs: "view",
     restrict: "E",
-    scope: {},
     templateUrl: "templates/directive.annotatedImage.html",
     controller: function() {
       var view = this;
@@ -39,6 +39,17 @@ angular.module('starter.directives').directive("annotatedImage", function(
         if (view.activeAnnotationIndex < view.object.pois.length - 1) {
           view.activeAnnotationIndex += 1;
         }
+      }
+
+      view.share = function(){
+        $cordovaSocialSharing.shareViaTwitter(view.object.titleOfWork1, "http://52.90.46.49/images/" + view.object.imageFilename).then(function(result) {
+          console.log("Success!!!!");
+          console.log(result);
+
+        }).catch(function(error){
+          console.log("Error...");
+          console.log(error);
+        });
       }
 
       return view;
