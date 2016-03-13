@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ngCordovaBeacon']);
 
-angular.module('starter.directives', []);
+angular.module('starter.directives', ['ngTouch']);
 
 angular.module('starter.services', []);
 

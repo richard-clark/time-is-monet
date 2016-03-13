@@ -29,6 +29,18 @@ angular.module('starter.directives').directive("annotatedImage", function(
         view.loading = false;
       });
 
+      view.previousAnnotation = function(){
+        if (view.activeAnnotationIndex > 0) {
+          view.activeAnnotationIndex -= 1;
+        }
+      }
+
+      view.nextAnnotation = function(){
+        if (view.activeAnnotationIndex < view.object.pois.length - 1) {
+          view.activeAnnotationIndex += 1;
+        }
+      }
+
       return view;
     }
   }
