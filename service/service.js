@@ -11,6 +11,8 @@ var objectModel = require('./models/object')(sequelize);
 var ibeaconModel = require('./models/ibeacon')(sequelize);
 var poiModel = require('./models/poi')(sequelize);
 
+objectModel.hasMany(poiModel, {foreignKey: 'objectId', as: 'pois'});
+
 var app = server = restify.createServer()
 app.use(function (req, res, next) {
 	if ((/^\/images\/.+/).test(req.url))
@@ -41,6 +43,19 @@ app.get('/images/:file', function (req, res, next) {
 	});
 });
 
+app.get('/images/thumbnails/:file', function (req, res, next) {
+	fs.readFile('./images/thumbnails/' + req.params.file, function(err, file) {
+		if (err) {
+			res.statusCode = 404;
+			return res.end();
+		}
+
+		res.writeHead(200);
+		res.write(file);
+		res.end();
+	});
+});
+
 epilogue.initialize({
 	app: app,
 	sequelize: sequelize
@@ -48,7 +63,8 @@ epilogue.initialize({
 
 var objectResource = epilogue.resource({
 	model: objectModel,
-	endpoints: ['/objects', '/objects/:objectid']
+	endpoints: ['/objects', '/objects/:objectid'],
+	associations: true
 });
 
 var locationResource = epilogue.resource({
