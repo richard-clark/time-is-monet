@@ -22,7 +22,6 @@ angular.module('starter.directives').directive("objectList", function(
       }];
 
       iBeacons.getObjects(beacons).then(function(objects){
-        console.log(objects);
         view.objects = objects;
         view.loading = false;
       });

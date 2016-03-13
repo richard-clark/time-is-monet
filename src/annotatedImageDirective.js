@@ -2,7 +2,6 @@ angular.module('starter.directives').directive("annotatedImage", function(
   $state,
   $http,
   iBeacons,
-  $state,
   $cordovaSocialSharing
 ){
   return {
@@ -10,7 +9,7 @@ angular.module('starter.directives').directive("annotatedImage", function(
     controllerAs: "view",
     restrict: "E",
     templateUrl: "templates/directive.annotatedImage.html",
-    controller: function() {
+    controller: function($scope) {
       var view = this;
       view.loading = true;
       view.annotations = [];
@@ -19,8 +18,6 @@ angular.module('starter.directives').directive("annotatedImage", function(
       iBeacons.getObject($state.params.id).then(function(response){
         var object = response.data;
 
-        console.log("Got object!");
-        console.log(object);
         view.object = object;
         view.object.pois.sort(function(a, b){
           return b.id - a.id;
@@ -42,7 +39,8 @@ angular.module('starter.directives').directive("annotatedImage", function(
       }
 
       view.share = function(){
-        $cordovaSocialSharing.shareViaTwitter(view.object.titleOfWork1, "http://52.90.46.49/images/" + view.object.imageFilename).then(function(result) {
+        var post = "I just learned something cool about " + view.object.titleOfWork1 + " at #pma: https://arty-facts.io/34hkj3h #art_facts";
+        $cordovaSocialSharing.shareViaTwitter(post, "http://52.90.46.49/images/" + view.object.imageFilename).then(function(result) {
           console.log("Success!!!!");
           console.log(result);
 
@@ -51,6 +49,8 @@ angular.module('starter.directives').directive("annotatedImage", function(
           console.log(error);
         });
       }
+
+      $scope.$on("share-button-clicked", view.share);
 
       return view;
     }
