@@ -3,11 +3,13 @@
     <p>{{beacon.uniqueBeaconKey}}</p>
     <p>{{beacon.proxmity}}</p>
   </div> -->
-  <div class="list" href="#">
-    <a class="item item-thumbnail-left" ng-repeat="object in view.objects" ng-href="#/object/{{object.objectid}}">
-      <img ng-src="http://52.90.46.49/images/thumbnails/{{object.imageFilename}}">
-      <h2>{{object.titleOfWork1}}</h2>
-      <p>{{object.artistName1}}</p>
+  <div class="grid">
+    <a class="grid-item" ng-repeat="object in view.objects" ng-href="#/object/{{object.objectid}}">
+      <img class="image" ng-src="http://52.90.46.49/images/thumbnails/{{object.imageFilename}}">
+      <h5 class="title">{{object.titleOfWork1}}</h5>
+
+      <!-- <h2>{{object.titleOfWork1}}</h2>
+      <p>{{object.artistName1}}</p> -->
     </a>
   </div>
 </div>
