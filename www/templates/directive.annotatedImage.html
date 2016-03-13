@@ -11,14 +11,13 @@
   ></div>
 </div>
 <div class="image-info" ng-if="view.object.pois.length > 0">
-  <h5>{{view.activeAnnotationIndex + 1}} of {{view.object.pois.length}}</h5>
+  <div class="dots">
+    <div class="dot"
+      ng-class="{selected: view.activeAnnotationIndex == $index}"
+      ng-repeat="annotation in view.object.pois"
+    ></div>
+  </div>
   <p>
     {{view.object.pois[view.activeAnnotationIndex].text}}
   </p>
-  <button class="button button-small button-calm" ng-if="view.activeAnnotationIndex > 0" ng-click="view.previousAnnotation()">
-    Previous
-  </button>
-  <button class="button button-small button-calm" ng-if="view.activeAnnotationIndex < view.object.pois.length - 1" ng-click="view.nextAnnotation()">
-    Next
-  </button>
 </div>

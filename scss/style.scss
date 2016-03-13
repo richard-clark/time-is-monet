@@ -56,4 +56,25 @@
 
 .image-info {
   padding: 10px;
+  padding-top: 0;
+}
+
+.dots {
+  text-align: center;
+
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #888;
+
+    &.selected {
+      background-color: black;
+    }
+
+    & + .dot {
+      margin-left: 5px;
+    }
+  }
 }
