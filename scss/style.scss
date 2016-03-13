@@ -1,7 +1,9 @@
 @mixin annotation-variant($color) {
   background-color: $color;
+  box-shadow: 0px 0px 2px black;
   &:before {
     border-color: $color;
+    box-shadow: 0px 0px 4px black;
   }
   &.selected {
     box-shadow: 0px 0px 10px $color;
