@@ -55,7 +55,7 @@
 }
 
 .image-info {
-  padding: 10px;
+  padding: 15px;
   padding-top: 0;
 }
 
@@ -67,14 +67,28 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #888;
+    background-color: #555;
 
     &.selected {
-      background-color: black;
+      background-color: white;
     }
 
     & + .dot {
       margin-left: 5px;
     }
+  }
+}
+
+.dark-view {
+  background-color: #292929;
+  color: white;
+}
+
+.bar.bar-header {
+  background-color: #444;
+  border-bottom: 1px solid #292929;
+
+  .header-item {
+    color: white;
   }
 }
